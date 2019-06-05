@@ -1,10 +1,10 @@
 {
   "app": {
-    "name": "Example App",
-    "short_description": "Short Description",
-    "long_description": "Long Description",
-    "installation_instructions": "Configure the following app settings, then click Install:...",
-    "title": "Example App"
+    "name": "Talk Partner Sample App",
+    "short_description": "A reference implementation to help app developers to use Talk Partner Edition APIs",
+    "long_description": "A reference implementation to help app developers to use Talk Partner Edition APIs",
+    "installation_instructions": "Thanks for installing this app",
+    "title": "Talk Partner Sample App"
   },
   "default": {
     "organizations": "organizations"

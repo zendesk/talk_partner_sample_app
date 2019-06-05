@@ -1,6 +1,3 @@
-(Title field)
-[OFFAPPS-XXX] Short description
-
 ## Description
 Develop what, but also why this PR exists. The "Why" is as much, if not more important than the "What". I use this approach very often when I write commit messages, because if the code is clear enough it should already answer the "what" question. The "why" is often more subtle.
 
@@ -25,13 +22,6 @@ I don't always use this section, but I do when I find there's something particul
 <summary>Screenshot 2</summary>
 <img src="2.png">
 </details>
-
-## CCs
-Anyone specific?
-Unless there's a good reason not to:
-@zendesk/apps-migration
-If translation-related:
-@zendesk/i18n
 
 ## Risks
 * [HIGH | medium | low] Does it work across browsers (including IE!)?

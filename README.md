@@ -1,9 +1,9 @@
 *Use of this software is subject to important terms and conditions as set forth in the License file*
 
-# App Scaffold
+# Talk Partner Sample App
 
 ## Description
-This repo contains a scaffold to help developers build [apps for Zendesk products](https://developer.zendesk.com/apps/docs/apps-v2/getting_started).
+This repo contains a reference implementation to help developers build [apps for Zendesk products](https://developer.zendesk.com/apps/docs/apps-v2/getting_started) using [Talk Partner Edition APIs](https://developer.zendesk.com/rest_api/docs/voice-api/talk_partner_edition).
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ This repo contains a scaffold to help developers build [apps for Zendesk product
 
 ### Setup
 1. Clone or fork this repo
-2. Change (`cd`) into the `app_scaffold` directory
+2. Change (`cd`) into the `talk_partner_sample_app` directory
 3. Run `yarn install`
 
 You can use either `yarn` or `npm` as package manager and run the scripts with the corresponding commands.
@@ -185,10 +185,10 @@ Included [Zendesk Garden CSS Components](https://garden.zendesk.com/css-componen
 
 ## Contribute
 * Put up a PR into the master branch.
-* CC and get a +1 from @zendesk/vegemite.
+* CC and get a review from maintainers.
 
 ## Bugs
-Submit Issues via [GitHub](https://github.com/zendesk/app_scaffold/issues/new) or email support@zendesk.com.
+Submit Issues via [GitHub](https://github.com/zendesk/talk_partner_sample_app/issues/new).
 
 ## Useful Links
 Links to maintaining team, confluence pages, Datadog dashboard, Kibana logs, etc
