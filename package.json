@@ -1,7 +1,8 @@
 {
-  "name": "app_scaffold",
+  "name": "talk_partner_sample_app",
   "version": "1.0.1",
-  "description": "A scaffold for developers to build ZAF v2 apps",
+  "description": "A reference implementation to help app developers to use Talk Partner Edition APIs",
+  "private": true,
   "keywords": [
     "zendesk",
     "app",

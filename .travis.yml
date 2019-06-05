@@ -4,5 +4,7 @@ node_js:
 cache: yarn
 branches:
   only: [master]
-script: yarn test
+script:
+  - yarn lint
+  - yarn test
 dist: trusty
