@@ -14,13 +14,13 @@ if (!document.createRange) {
   createRangePolyfill()
 }
 
-describe('Example App', () => {
+describe('Talk Partner Sample App', () => {
   let errorSpy
   let app
 
   describe('Initialization Failure', () => {
     beforeEach((done) => {
-      document.body.innerHTML = '<section data-main><img class="loader" src="spinner.gif"/></section>'
+      document.body.innerHTML = '<section data-main><img class="talk-partner-app loader" src="spinner.gif"/></section>'
       CLIENT.request = jest.fn().mockReturnValueOnce(Promise.reject(new Error('a fake error')))
 
       app = new App(CLIENT, {})
@@ -38,7 +38,7 @@ describe('Example App', () => {
 
   describe('Initialization Success', () => {
     beforeEach((done) => {
-      document.body.innerHTML = '<section data-main><img class="loader" src="spinner.gif"/></section>'
+      document.body.innerHTML = '<section data-main><img class="talk-partner-app loader" src="spinner.gif"/></section>'
       CLIENT.request = jest.fn().mockReturnValueOnce(Promise.resolve(ORGANIZATIONS))
       CLIENT.invoke = jest.fn().mockReturnValue(Promise.resolve({}))
 
@@ -50,7 +50,7 @@ describe('Example App', () => {
     })
 
     it('should render main stage with data', () => {
-      expect(document.querySelector('.example-app')).not.toBe(null)
+      expect(document.querySelector('.talk-partner-app')).not.toBe(null)
       expect(document.querySelector('h1').textContent).toBe('Hi Sample User, this is a sample app')
       expect(document.querySelector('h2').textContent).toBe('default.organizations:')
     })
@@ -60,6 +60,25 @@ describe('Example App', () => {
         { name: 'Organization A' },
         { name: 'Organization B' }
       ])
+    })
+
+    describe('when making a call', () => {
+      beforeEach(() => {
+        CLIENT.trigger({
+          number: '+123'
+        })
+      })
+
+      it('should display call', () => {
+        expect(document.querySelector('span').textContent.trim()).toBe('Call requested: +123')
+      })
+
+      it('should be able to go back', () => {
+        expect(document.querySelector('#back')).not.toBe(null)
+        document.querySelector('#back').dispatchEvent(new Event('click'))
+        expect(document.querySelector('.talk-partner-app')).not.toBe(null)
+        expect(document.querySelector('h1').textContent).toBe('Hi Sample User, this is a sample app')
+      })
     })
   })
 })

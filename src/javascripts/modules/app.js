@@ -1,10 +1,11 @@
 /**
- *  Example app
+ *  Talk Partner Sample App
  **/
 
 import I18n from '../../javascripts/lib/i18n'
-import { resizeContainer, render } from '../../javascripts/lib/helpers'
+import { resizeContainer, render, attachEvent, detachEvent } from '../../javascripts/lib/helpers'
 import getDefaultTemplate from '../../templates/default'
+import getCallTemplate from '../../templates/call'
 
 const MAX_HEIGHT = 1000
 const API_ENDPOINTS = {
@@ -32,6 +33,8 @@ class App {
 
     I18n.loadTranslations(currentUser.locale)
 
+    this._client.on('voice.dialout', this._handleDialout.bind(this))
+
     const organizations = await this._client
       .request(API_ENDPOINTS.organizations)
       .catch(this._handleError.bind(this))
@@ -40,10 +43,23 @@ class App {
       this.states.organizations = organizations.organizations
 
       // render application markup
-      render('.loader', getDefaultTemplate(this.states))
+      render('.talk-partner-app', getDefaultTemplate(this.states))
 
       return resizeContainer(this._client, MAX_HEIGHT)
     }
+  }
+
+  _handleBack () {
+    detachEvent('#back', 'click', this._handleBack.bind(this))
+    this.states.dialout = null
+    render('.talk-partner-app', getDefaultTemplate(this.states))
+  }
+
+  _handleDialout (data) {
+    this.states.dialout = data
+    render('.talk-partner-app', getCallTemplate(this.states))
+    attachEvent('#back', 'click', this._handleBack.bind(this))
+    this._client.invoke('popover', 'show')
   }
 
   /**

@@ -35,6 +35,30 @@ export function render (replacedNodeSelector, htmlString) {
 }
 
 /**
+ * Attach event handler on node
+ * @param {String} nodeSelector selector of the node
+ * @param {String} eventName event name to be attached
+ * @param {Function} handler the callback function to be called
+ */
+export function attachEvent (nodeSelector, eventName, handler) {
+  const node = document.querySelector(nodeSelector)
+
+  node.addEventListener(eventName, handler, false)
+}
+
+/**
+ * Detach event handler on node
+ * @param {String} nodeSelector selector of the node
+ * @param {String} eventName event name to be detached
+ * @param {Function} handler the callback function to be removed
+ */
+export function detachEvent (nodeSelector, eventName, handler) {
+  const node = document.querySelector(nodeSelector)
+
+  node.removeEventListener(eventName, handler, false)
+}
+
+/**
  * Helper to escape unsafe characters in HTML, including &, <, >, ", ', `, =
  * @param {String} str String to be escaped
  * @return {String} escaped string

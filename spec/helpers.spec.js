@@ -1,5 +1,7 @@
 /* eslint-env jest */
-import { resizeContainer, templatingLoop, render, escapeSpecialChars as escape } from '../src/javascripts/lib/helpers'
+/* global Event */
+
+import { resizeContainer, templatingLoop, render, escapeSpecialChars as escape, attachEvent, detachEvent } from '../src/javascripts/lib/helpers'
 import createRangePolyfill from './polyfills/createRange'
 
 if (!document.createRange) {
@@ -67,5 +69,34 @@ describe('escapeSpecialChars', () => {
 
   it('should escape unsafe tags and characters', () => {
     expect(escape('Test Ticket for Text App</a><script>javascript:alret(1);</script>')).toBe('Test Ticket for Text App&lt;/a&gt;&lt;script&gt;javascript:alret(1);&lt;/script&gt;')
+  })
+})
+
+describe('attachEvent', () => {
+  it('should trigger callback', () => {
+    document.body.innerHTML = '<button id="placeholder"></button>'
+    expect(document.querySelectorAll('#placeholder').length).toBe(1)
+    const handler = jest.fn()
+    attachEvent('#placeholder', 'newevent', handler)
+    document.querySelector('#placeholder').dispatchEvent(new Event('newevent'))
+    expect(handler).toHaveBeenCalled()
+  })
+})
+
+describe('detachEvent', () => {
+  it('should not trigger callback', () => {
+    document.body.innerHTML = '<button id="placeholder"></button>'
+    expect(document.querySelectorAll('#placeholder').length).toBe(1)
+
+    const handler = jest.fn()
+
+    attachEvent('#placeholder', 'newevent', handler)
+    document.querySelector('#placeholder').dispatchEvent(new Event('newevent'))
+    expect(handler).toHaveBeenCalled()
+
+    detachEvent('#placeholder', 'newevent', handler)
+    document.querySelector('#placeholder').dispatchEvent(new Event('newevent'))
+
+    expect(handler).toHaveBeenCalledTimes(1) // only the first time
   })
 })
