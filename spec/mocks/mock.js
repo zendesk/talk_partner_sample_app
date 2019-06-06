@@ -1,3 +1,5 @@
+let callbacks = []
+
 export const CLIENT = {
   _origin: 'zendesk.com',
   get: (prop) => {
@@ -12,6 +14,12 @@ export const CLIENT = {
     return Promise.resolve({
       [prop]: null
     })
+  },
+  on: (e, cb) => {
+    callbacks.push(cb)
+  },
+  trigger: (p) => {
+    callbacks.forEach(cb => cb(p))
   }
 }
 

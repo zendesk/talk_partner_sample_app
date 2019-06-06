@@ -3,6 +3,11 @@ body {
   padding: 5px;
 }
 
+.pull-down {
+  position: absolute;
+  bottom: 5px;
+}
+
 .loader {
   left: 50%;
   position: absolute;

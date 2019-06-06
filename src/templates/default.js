@@ -6,7 +6,7 @@ function organizationMarkup (organization) {
 }
 
 export default function (args) {
-  return `<div class="example-app">
+  return `<div class="talk-partner-app">
     <div>
       <h1>Hi ${escape(args.currentUserName)}, this is a sample app</h1>
       <h2>${I18n.t('default.organizations')}:</h2>
