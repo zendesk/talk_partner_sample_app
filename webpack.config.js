@@ -34,10 +34,14 @@ const externalAssets = {
 
 module.exports = {
   entry: {
-    app: [
+    top_bar: [
       'babel-polyfill',
       './src/javascripts/locations/top_bar.js',
       './src/index.css'
+    ],
+    background: [
+      'babel-polyfill',
+      './src/javascripts/locations/background.js'
     ]
   },
   output: {
@@ -86,11 +90,21 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      warning: 'AUTOMATICALLY GENERATED FROM ./src/templates/iframe.html - DO NOT MODIFY THIS FILE DIRECTLY',
+      warning: 'AUTOMATICALLY GENERATED FROM ./src/templates/top_bar_iframe.html - DO NOT MODIFY THIS FILE DIRECTLY',
       vendorCss: externalAssets.css.filter(path => !!path),
       vendorJs: externalAssets.js,
-      template: './src/templates/iframe.html',
-      filename: 'iframe.html'
+      template: './src/templates/top_bar_iframe.html',
+      chunks: ['top_bar'],
+      filename: 'top_bar_iframe.html'
+    }),
+
+    new HtmlWebpackPlugin({
+      warning: 'AUTOMATICALLY GENERATED FROM ./src/templates/background_iframe.html - DO NOT MODIFY THIS FILE DIRECTLY',
+      vendorCss: externalAssets.css.filter(path => !!path),
+      vendorJs: externalAssets.js,
+      template: './src/templates/background_iframe.html',
+      chunks: ['background'],
+      filename: 'background_iframe.html'
     })
   ]
 }

@@ -14,7 +14,7 @@ if (!document.createRange) {
   createRangePolyfill()
 }
 
-describe('Example App', () => {
+describe('Talk Partner Sample App', () => {
   let errorSpy
   let app
 

@@ -1,5 +1,5 @@
 /**
- *  Example app
+ *  Talk Partner Sample App
  **/
 
 import I18n from '../../javascripts/lib/i18n'
@@ -59,6 +59,7 @@ class App {
     this.states.dialout = data
     render('.talk-partner-app', getCallTemplate(this.states))
     attachEvent('#back', 'click', this._handleBack.bind(this))
+    this._client.invoke('popover', 'show')
   }
 
   /**
