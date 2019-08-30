@@ -3,7 +3,7 @@
  **/
 
 import I18n from '../../javascripts/lib/i18n'
-import { resizeContainer, render, attachEvent, detachEvent } from '../../javascripts/lib/helpers'
+import { render, attachEvent, detachEvent } from '../../javascripts/lib/helpers'
 import getDefaultTemplate from '../../templates/default'
 import getCallTemplate from '../../templates/call'
 
@@ -45,7 +45,7 @@ class App {
       // render application markup
       render('.talk-partner-app', getDefaultTemplate(this.states))
 
-      return resizeContainer(this._client, MAX_HEIGHT)
+      return this._client.invoke('resize', { height: '400px' })
     }
   }
 
