@@ -65,12 +65,17 @@ describe('Talk Partner Sample App', () => {
     describe('when making a call', () => {
       beforeEach(() => {
         CLIENT.trigger({
-          number: '+123'
+          number: '+123',
+          userId: 1,
+          ticketId: 2
         })
       })
 
       it('should display call', () => {
-        expect(document.querySelector('span').textContent.trim()).toBe('Call requested: +123')
+        expect(document.querySelector('div p:nth-child(1)').textContent.trim()).toBe('Call requested')
+        expect(document.querySelector('div p:nth-child(2)').textContent.trim()).toBe('Number: +123')
+        expect(document.querySelector('div p:nth-child(3)').textContent.trim()).toBe('User ID: 1')
+        expect(document.querySelector('div p:nth-child(4)').textContent.trim()).toBe('Ticket ID: 2')
       })
 
       it('should be able to go back', () => {
