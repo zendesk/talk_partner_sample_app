@@ -6,7 +6,5 @@
     "installation_instructions": "Thanks for installing this app",
     "title": "Talk Partner Sample App"
   },
-  "default": {
-    "organizations": "organizations"
-  }
+  "default": {}
 }

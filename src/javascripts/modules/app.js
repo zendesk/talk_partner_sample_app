@@ -6,6 +6,7 @@ import I18n from '../../javascripts/lib/i18n'
 import { render, attachEvent, detachEvent } from '../../javascripts/lib/helpers'
 import getDefaultTemplate from '../../templates/default'
 import getCallTemplate from '../../templates/call'
+import getErrorTemplate from '../../templates/error_screen'
 
 const MAX_HEIGHT = 1000
 const API_ENDPOINTS = {
@@ -33,20 +34,12 @@ class App {
 
     I18n.loadTranslations(currentUser.locale)
 
+    render('.talk-partner-app', getDefaultTemplate(this.states))
+
     this._client.on('voice.dialout', this._handleDialout.bind(this))
+    this._client.on('voice.error', this._handleError.bind(this))
 
-    const organizations = await this._client
-      .request(API_ENDPOINTS.organizations)
-      .catch(this._handleError.bind(this))
-
-    if (organizations) {
-      this.states.organizations = organizations.organizations
-
-      // render application markup
-      render('.talk-partner-app', getDefaultTemplate(this.states))
-
-      return this._client.invoke('resize', { height: '400px' })
-    }
+    return this._client.invoke('resize', { height: '400px' })
   }
 
   _handleBack () {
@@ -67,7 +60,10 @@ class App {
    * @param {Object} error error object
    */
   _handleError (error) {
-    console.log('An error is handled here: ', error.message)
+    this.states.error = error
+    render('.talk-partner-app', getErrorTemplate(this.states))
+    attachEvent('#back', 'click', this._handleBack.bind(this))
+    this._client.invoke('popover', 'show')
   }
 }
 
