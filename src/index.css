@@ -1,5 +1,4 @@
 body {
-  height: 400px;
   padding: 5px;
 }
 
@@ -15,4 +14,3 @@ body {
   transform: translate(-50%, -50%);
   width: 40px;
 }
-
