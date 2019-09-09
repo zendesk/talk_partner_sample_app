@@ -1,4 +1,4 @@
-let callbacks = []
+let callbacks = {}
 
 export const CLIENT = {
   _origin: 'zendesk.com',
@@ -16,19 +16,11 @@ export const CLIENT = {
     })
   },
   on: (e, cb) => {
-    callbacks.push(cb)
+    callbacks[e] = callbacks[e] || []
+    callbacks[e].push(cb)
   },
-  trigger: (p) => {
-    callbacks.forEach(cb => cb(p))
+  trigger: (e, p) => {
+    callbacks[e] = callbacks[e] || []
+    callbacks[e].forEach(cb => cb(p))
   }
-}
-
-export const ORGANIZATIONS = {
-  organizations: [
-    { name: 'Organization A' },
-    { name: 'Organization B' }
-  ],
-  next_page: null,
-  previous_page: null,
-  count: 1
 }
