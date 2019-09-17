@@ -6,6 +6,7 @@
     "url": "https://support.zendesk.com/"
   },
   "defaultLocale": "en",
+  "private": false,
   "location": {
     "support": {
       "top_bar": "assets/top_bar_iframe.html",
