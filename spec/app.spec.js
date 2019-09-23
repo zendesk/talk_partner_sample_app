@@ -1,6 +1,6 @@
 /* eslint-env jest, browser */
 import App from '../src/javascripts/modules/app'
-import { CLIENT, ORGANIZATIONS } from './mocks/mock'
+import { CLIENT } from './mocks/mock'
 import createRangePolyfill from './polyfills/createRange'
 
 jest.mock('../src/javascripts/lib/i18n', () => {
@@ -15,7 +15,6 @@ if (!document.createRange) {
 }
 
 describe('Talk Partner Sample App', () => {
-  let errorSpy
   let app
 
   describe('Initialization Success', () => {

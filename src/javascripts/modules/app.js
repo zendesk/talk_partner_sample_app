@@ -8,11 +8,6 @@ import getDefaultTemplate from '../../templates/default'
 import getCallTemplate from '../../templates/call'
 import getErrorTemplate from '../../templates/error_screen'
 
-const MAX_HEIGHT = 1000
-const API_ENDPOINTS = {
-  organizations: '/api/v2/organizations.json'
-}
-
 class App {
   constructor (client, appData) {
     this._client = client
