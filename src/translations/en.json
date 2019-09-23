@@ -1,10 +1,21 @@
 {
   "app": {
-    "name": "Talk Partner Sample App",
-    "short_description": "A reference implementation to help app developers to use Talk Partner Edition APIs",
-    "long_description": "A reference implementation to help app developers to use Talk Partner Edition APIs",
-    "installation_instructions": "Thanks for installing this app",
-    "title": "Talk Partner Sample App"
-  },
-  "default": {}
+    "name": {
+      "title": "Name for App: Talk Partner Sample App",
+      "value": "Talk Partner Sample App"
+    },
+    "short_description": {
+      "title": "Description for App: Talk Partner Sample App",
+      "value": "A reference implementation to help app developers to use Talk Partner Edition APIs"
+    },
+    "long_description": {
+      "title": "Description for App: Talk Partner Sample App",
+      "value": "A reference implementation to help app developers to use Talk Partner Edition APIs"
+    },
+    "installation_instructions": {
+      "title": "Description for App: Talk Partner Sample App",
+      "value": "Thanks for installing this app"
+    },
+    "package": "talk_partner_sample_app"
+  }
 }
