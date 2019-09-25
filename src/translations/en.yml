@@ -1,0 +1,22 @@
+title: "Talk Partner Sample App"
+packages:
+  - default
+  - app_talk_partner_sample_app
+
+parts:
+  - translation:
+      key: "txt.apps.talk_partner_sample_app.app.name"
+      title: "Name for App: Talk Partner Sample App"
+      value: "Talk Partner Sample App"
+  - translation:
+      key: "txt.apps.talk_partner_sample_app.app.short_description"
+      title: "Description for App: Talk Partner Sample App"
+      value: "A reference implementation to help app developers to use Talk Partner Edition APIs"
+  - translation:
+      key: "txt.apps.talk_partner_sample_app.app.long_description"
+      title: "Description for App: Talk Partner Sample App"
+      value: "A reference implementation to help app developers to use Talk Partner Edition APIs"
+  - translation:
+      key: "txt.apps.talk_partner_sample_app.app.installation_instructions"
+      title: "Description for App: Talk Partner Sample App"
+      value: "Thanks for installing this app"

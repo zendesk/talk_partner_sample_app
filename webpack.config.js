@@ -79,7 +79,8 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'src/manifest.json', to: '../', flatten: true },
       { from: 'src/images/*', to: '.', flatten: true },
-      { from: 'src/screenshots/*', to: '.', flatten: true }
+      { from: 'src/screenshots/*', to: '.', flatten: true },
+      { from: 'src/translations/en.yml', to: '../translations/en.yml' }
     ]),
 
     new MiniCssExtractPlugin({
