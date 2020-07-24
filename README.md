@@ -1,3 +1,4 @@
+![repo-checks](https://github.com/zendesk/talk_partner_sample_app/workflows/repo-checks/badge.svg)
 *Use of this software is subject to important terms and conditions as set forth in the License file*
 
 # Talk Partner Sample App

@@ -1,0 +1,14 @@
+name: samson
+on:
+  push:
+    branches: master
+jobs:
+  samson:
+    runs-on: [ self-hosted, zendesk-stable]
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - name: Notify Samson
+      env:
+        WEBHOOK_URL: 'https://samson.zende.sk/integrations/generic/d38b401d7ce03f88566c997da29f42f3'
+        COMMIT: ${{ github.sha }}
+      uses: zendesk/ga/samson-create-release@v1
