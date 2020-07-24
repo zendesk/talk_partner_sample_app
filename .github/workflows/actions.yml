@@ -13,7 +13,7 @@ jobs:
       matrix:
         task:
         - lint
-        test
+        - test
     steps:
     - uses: zendesk/checkout@v2
     - uses: zendesk/setup-node@v2.0.0
