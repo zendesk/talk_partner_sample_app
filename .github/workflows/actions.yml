@@ -1,0 +1,26 @@
+name: repo-checks
+
+on:
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  main:
+    name: node_js
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        task:
+        - lint
+        - test
+    steps:
+    - uses: zendesk/checkout@v2
+    - uses: zendesk/setup-node@v2.0.0
+      with:
+        node-version: '6.11.5'
+    - name: ${{matrix.task}}
+      run: |
+        yarn install
+        yarn ${{matrix.task}}
+
