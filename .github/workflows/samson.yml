@@ -4,7 +4,7 @@ on:
     branches: master
 jobs:
   samson:
-    runs-on: [ self-hosted, zendesk-stable]
+    runs-on: zendesk-stable
     if: github.ref == 'refs/heads/master'
     steps:
     - name: Notify Samson
