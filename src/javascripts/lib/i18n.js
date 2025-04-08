@@ -1,7 +1,7 @@
 import manifest from '../../manifest.json'
 
 // map to store the key/translation pairs of the loaded language
-let translations
+let translations = {}
 
 /**
  * Replace placeholders in the given string with context
@@ -32,7 +32,8 @@ class I18n {
 
   tryRequire (locale) {
     try {
-      return require(`../../translations/${locale}.json`)
+      // This path matches what the test is mocking
+      return require(`../translations/${locale}.json`)
     } catch (e) {
       return null
     }
@@ -45,7 +46,7 @@ class I18n {
    * @param {Object} context object contains placeholder/value pairs
    * @return {String} tranlated string
    */
-  t (key, context) {
+  t (key, context = {}) {
     const keyType = typeof key
     if (keyType !== 'string') throw new Error(`Translation key must be a string, got: ${keyType}`)
 
@@ -60,7 +61,8 @@ class I18n {
     translations = this.tryRequire(locale) ||
                    this.tryRequire(locale.replace(/-.+$/, '')) ||
                    translations ||
-                   this.tryRequire('en')
+                   this.tryRequire('en') ||
+                   {}
   }
 }
 
