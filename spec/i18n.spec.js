@@ -2,19 +2,19 @@
 import i18n from '../src/javascripts/lib/i18n'
 
 const mockEN = {
-  'one': 'the first translation',
+  one: 'the first translation',
   'two.one': 'the second translation for: {{fname}}',
   'two.two': 'the second translation for: {{fname}}-{{lname}}',
   'three.one.one': 'the third translation from {{name}} for {{name}} should be {{name}}',
-  'four': {}
+  four: {}
 }
 
-jest.mock('../src/translations/en', () => {
-  return mockEN
-})
-
-jest.mock('../src/translations/fr', () => {
-  throw new Error('no such file')
+// Directly set the translations for testing
+jest.spyOn(i18n, 'tryRequire').mockImplementation((locale) => {
+  if (locale === 'en') {
+    return mockEN
+  }
+  return null
 })
 
 describe('i18n', () => {

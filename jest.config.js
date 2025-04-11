@@ -1,6 +1,9 @@
 module.exports = {
   verbose: true,
-  testURL: 'http://localhost/',
+  testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    url: 'http://localhost/'
+  },
   collectCoverage: true,
   globals: {
     ZAFClient: {

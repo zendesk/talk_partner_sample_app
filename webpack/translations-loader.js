@@ -25,7 +25,7 @@
 function translationFlatten (object, currentKeys = []) {
   const res = {}
 
-  Object.keys(object).map(
+  Object.keys(object).forEach(
     key => {
       const value = object[key]
 

@@ -16,11 +16,10 @@ jobs:
         - test
     steps:
     - uses: zendesk/checkout@v2
-    - uses: zendesk/setup-node@v2.0.0
+    - uses: zendesk/setup-node@v4
       with:
-        node-version: '6.11.5'
+        node-version: '20.10.0'
     - name: ${{matrix.task}}
       run: |
         yarn install
         yarn ${{matrix.task}}
-

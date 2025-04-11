@@ -1,4 +1,4 @@
-let callbacks = {}
+const callbacks = {}
 
 export const CLIENT = {
   _origin: 'zendesk.com',
