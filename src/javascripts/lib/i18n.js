@@ -32,7 +32,6 @@ class I18n {
 
   tryRequire (locale) {
     try {
-      // This path matches what the test is mocking
       return require(`../translations/${locale}.json`)
     } catch (e) {
       return null

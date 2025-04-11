@@ -17,31 +17,5 @@
       "value": "Thanks for installing this app"
     },
     "package": "talk_partner_sample_app"
-  },
-  "one": {
-    "title": "Translation for one",
-    "value": "the first translation"
-  },
-  "two": {
-    "one": {
-      "title": "Translation for two.one",
-      "value": "the second translation for: {{fname}}"
-    },
-    "two": {
-      "title": "Translation for two.two",
-      "value": "the second translation for: {{fname}}-{{lname}}"
-    }
-  },
-  "three": {
-    "one": {
-      "one": {
-        "title": "Translation for three.one.one",
-        "value": "the third translation from {{name}} for {{name}} should be {{name}}"
-      }
-    }
-  },
-  "four": {
-    "title": "Translation for four",
-    "value": {}
   }
 }
